@@ -1,26 +1,156 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f9f6;
+  --foreground: #163c35;
+
+  --primary: #0f5145;
+  --primary-light: #e3eee9;
+
+  --white: #ffffff;
+  --muted: #66756f;
+  --border: #dce6e1;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+
+  --color-white: var(--white);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================
+   NORTH ARC NAVBAR LOGO
+   ========================= */
+
+.north-arc-logo {
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-style: preserve-3d;
+}
+
+.north-arc-logo:hover {
+  transform: perspective(700px) rotateY(180deg) scale(1.03);
+}
+
+
+/* =========================
+   FOOTER LOGO 3D JUMP
+   ========================= */
+
+.footer-logo-wrap {
+  display: inline-block;
+  perspective: 1000px;
+}
+
+.footer-logo {
+  display: block;
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  will-change: transform;
+  animation: footerLogoJump 1.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+/* =========================
+   FOOTER LOGO ANIMATION
+   ========================= */
+
+@keyframes footerLogoJump {
+  0% {
+    opacity: 0;
+    transform:
+      translateY(60px)
+      translateZ(-80px)
+      scale(0.65)
+      rotateX(25deg)
+      rotateY(-12deg);
+  }
+
+  35% {
+    opacity: 1;
+    transform:
+      translateY(-25px)
+      translateZ(50px)
+      scale(1.18)
+      rotateX(-8deg)
+      rotateY(8deg);
+  }
+
+  55% {
+    transform:
+      translateY(12px)
+      translateZ(20px)
+      scale(0.94)
+      rotateX(5deg)
+      rotateY(-3deg);
+  }
+
+  72% {
+    transform:
+      translateY(-6px)
+      translateZ(10px)
+      scale(1.04)
+      rotateX(-2deg)
+      rotateY(2deg);
+  }
+
+  88% {
+    transform:
+      translateY(2px)
+      translateZ(3px)
+      scale(0.99)
+      rotateX(1deg)
+      rotateY(-1deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform:
+      translateY(0)
+      translateZ(0)
+      scale(1)
+      rotateX(0deg)
+      rotateY(0deg);
+  }
+}
+
+
+/* =========================
+   FOOTER LOGO HOVER
+   ========================= */
+
+.footer-logo-wrap:hover .footer-logo {
+  transform:
+    translateY(-7px)
+    translateZ(25px)
+    scale(1.08)
+    rotateX(-5deg)
+    rotateY(5deg);
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
