@@ -165,3 +165,20 @@ html {
 body {
   overflow-x: hidden;
 }
+
+/* Fix dropdown option visibility */
+select {
+  color: #ffffff;
+  background-color: #11574c;
+}
+
+select option {
+  color: #1f2937;
+  background-color: #ffffff;
+}
+
+select option:checked {
+  color: #1f2937;
+  background-color: #dbeafe;
+}
+
