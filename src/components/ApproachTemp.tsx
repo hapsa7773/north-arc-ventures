@@ -1,22 +1,33 @@
 
+import {
+  MapPin,
+  ExternalLink,
+  UsersRound,
+  Building2,
+  Handshake,
+} from "lucide-react";
+
 const steps = [
   {
     number: "01",
     title: "Customer-led thinking.",
     description:
       "We shape our products and services around real customer needs—not assumptions.",
+    icon: UsersRound,
   },
   {
     number: "02",
     title: "Strong operating foundations.",
     description:
       "We invest attention in the systems, infrastructure and execution that keep businesses running.",
+    icon: Building2,
   },
   {
     number: "03",
     title: "Partnerships built to last.",
     description:
       "We value meaningful relationships with suppliers, customers, retailers and business partners.",
+    icon: Handshake,
   },
 ];
 
@@ -57,7 +68,7 @@ export default function Approach() {
           </p>
         </div>
 
-        {/* Principles */}
+        {/* Three principles */}
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {steps.map((step) => (
             <article
@@ -66,7 +77,7 @@ export default function Approach() {
             >
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute -right-5 -top-5 h-28 w-28 rounded-full bg-[#e1eee8]/70 transition-colors group-hover:bg-[#cfe5da]/80"
+                className="pointer-events-none absolute -right-5 -top-5 h-28 w-28 rounded-full bg-[#e1eee8]/70 transition-colors duration-300 group-hover:bg-[#cfe5da]/80"
               />
 
               <div className="relative">
@@ -75,12 +86,12 @@ export default function Approach() {
                     {step.number}
                   </span>
 
-                  <span className="text-lg text-[#176454] transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1">
-                    ↗
-                  </span>
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#e1eee8] text-[#176454] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#cfe5da]">
+                    <step.icon size={27} strokeWidth={1.6} />
+                  </div>
                 </div>
 
-                <h2 className="mt-10 text-xl font-semibold leading-snug tracking-tight text-[#123f36] sm:text-2xl">
+                <h2 className="mt-8 text-xl font-semibold leading-snug tracking-tight text-[#123f36] sm:text-2xl">
                   {step.title}
                 </h2>
 
@@ -94,15 +105,11 @@ export default function Approach() {
           ))}
         </div>
 
-        {/* Our Roots */}
-        <div className="relative mt-16 overflow-hidden rounded-[2rem] border border-white/70 bg-gradient-to-br from-[#dcece4] via-[#edf5f1] to-white p-7 shadow-[0_18px_45px_rgba(18,78,65,0.07)] sm:p-10 lg:mt-20 lg:p-14">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full border-[30px] border-[#176454]/[0.05]"
-          />
-
-          <div className="relative grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
-            <div>
+        {/* Our Roots - Jamshedpur Map */}
+        <div className="relative mt-16 overflow-hidden rounded-[2rem] border border-white/80 bg-white/75 shadow-[0_18px_45px_rgba(18,78,65,0.08)] backdrop-blur-sm sm:mt-20">
+          <div className="grid lg:grid-cols-[0.85fr_1.15fr]">
+            {/* Location information */}
+            <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
               <p className="text-sm font-medium uppercase tracking-[0.28em] text-[#176454]">
                 05 / Our Roots
               </p>
@@ -111,20 +118,46 @@ export default function Approach() {
                 Our home is Jamshedpur.
               </h2>
 
-              <div className="mt-7 h-1 w-16 rounded-full bg-[#176454]" />
-            </div>
-
-            <div>
-              <p className="text-base leading-8 text-[#536b65]">
+              <p className="mt-6 text-base leading-8 text-[#536b65]">
                 Based in Jharkhand’s industrial heartland, NorthArc serves
                 Jamshedpur and surrounding markets. We’re building strong
                 regional foundations with the ambition to grow thoughtfully
                 over time.
               </p>
 
-              <p className="mt-7 inline-flex rounded-full border border-[#c9dfd4] bg-white/80 px-5 py-3 text-xs font-medium uppercase tracking-[0.16em] text-[#176454] sm:text-sm">
+              <div className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-[#c9dfd4] bg-[#edf5f1] px-4 py-3 text-xs font-medium uppercase tracking-wider text-[#176454] sm:text-sm">
+                <MapPin size={17} />
                 Jamshedpur · Jharkhand · India
-              </p>
+              </div>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Jamshedpur%2C%20Jharkhand%2C%20India"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-[#12584b] px-5 py-3 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:bg-[#0b4037]"
+              >
+                Explore on Google Maps
+                <ExternalLink size={15} />
+              </a>
+            </div>
+
+            {/* Interactive Google Map */}
+            <div className="relative min-h-[320px] overflow-hidden bg-[#e1eee8] sm:min-h-[400px] lg:min-h-[470px]">
+              <iframe
+                title="Map showing Jamshedpur, Jharkhand"
+                src="https://maps.google.com/maps?q=Jamshedpur%2C%20Jharkhand%2C%20India&z=12&output=embed"
+                width="100%"
+                height="100%"
+                className="absolute inset-0 h-full min-h-[320px] w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-[#176454]/10"
+              />
             </div>
           </div>
         </div>

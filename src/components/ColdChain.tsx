@@ -1,4 +1,5 @@
 
+import { Snowflake, Package } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -7,18 +8,20 @@ const offerings = [
     number: "01",
     title: "Frozen storage & space rental",
     text: "Sub-zero cold-storage space for businesses handling frozen goods, subject to product suitability, operating conditions and availability.",
+    icon: Snowflake,
   },
   {
     number: "02",
     title: "Frozen-food trading",
     text: "Selected frozen-food categories including green peas, sweet corn, mushrooms and peppers for commercial buyers.",
+    icon: Package,
   },
 ];
 
 export default function ColdChain() {
   return (
     <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#edf5f1] via-[#f8faf8] to-[#e1eee8] py-28 sm:py-32">
-      {/* Decorative background glows */}
+      {/* Background decorations */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-32 top-24 -z-10 h-80 w-80 rounded-full bg-[#b9d8ca]/40 blur-3xl"
@@ -37,7 +40,7 @@ export default function ColdChain() {
       />
 
       <div className="mx-auto w-[92%] max-w-7xl">
-        {/* Hero section */}
+        {/* Hero */}
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.28em] text-[#176454]">
@@ -55,7 +58,7 @@ export default function ColdChain() {
             </p>
           </div>
 
-          {/* Cold storage warehouse image */}
+          {/* Cold storage image */}
           <div className="relative rounded-[2rem] border border-white/80 bg-white/70 p-2 shadow-[0_20px_55px_rgba(18,78,65,0.12)] backdrop-blur-sm">
             <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[1.5rem] bg-[#e5efeb]">
               <Image
@@ -70,7 +73,7 @@ export default function ColdChain() {
           </div>
         </div>
 
-        {/* Storage capacity and business information */}
+        {/* Storage capacity */}
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#12584b] to-[#0b4037] px-8 py-10 text-white shadow-[0_18px_45px_rgba(18,78,65,0.16)] sm:px-10 sm:py-12">
             <div
@@ -83,8 +86,7 @@ export default function ColdChain() {
             </p>
 
             <p className="relative mt-4 text-6xl font-semibold tracking-tight sm:text-7xl">
-              7,000{" "}
-              <span className="text-2xl font-medium">CFT</span>
+              7,000 <span className="text-2xl font-medium">CFT</span>
             </p>
 
             <p className="relative mt-5 text-base leading-7 text-white/75">
@@ -131,26 +133,41 @@ export default function ColdChain() {
             {offerings.map((item) => (
               <article
                 key={item.number}
-                className="group rounded-[2rem] border border-[#dce9e2] bg-white/85 p-8 shadow-[0_10px_35px_rgba(18,78,65,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-[#a9cfc0] hover:shadow-[0_18px_40px_rgba(18,78,65,0.09)] sm:p-10"
+                className="group relative overflow-hidden rounded-[2rem] border border-[#dce9e2] bg-white/85 p-8 shadow-[0_10px_35px_rgba(18,78,65,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-[#a9cfc0] hover:shadow-[0_18px_40px_rgba(18,78,65,0.09)] sm:p-10"
               >
-                <p className="text-sm font-medium text-[#176454]">
-                  {item.number} ↗
-                </p>
+                {/* Decorative circle */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#e1eee8]/60 transition-colors duration-300 group-hover:bg-[#cfe5da]/80"
+                />
 
-                <h3 className="mt-5 text-2xl font-semibold tracking-tight text-[#123f36] sm:text-3xl">
+                {/* Number and icon */}
+                <div className="relative flex items-center justify-between">
+                  <span className="text-sm font-medium tracking-widest text-[#176454]">
+                    {item.number}
+                  </span>
+
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#e1eee8] text-[#176454] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#cfe5da]">
+                    <item.icon size={26} strokeWidth={1.6} />
+                  </div>
+                </div>
+
+                <h3 className="relative mt-6 text-2xl font-semibold tracking-tight text-[#123f36] sm:text-3xl">
                   {item.title}
                 </h3>
 
-                <p className="mt-4 leading-7 text-[#536b65]">
+                <p className="relative mt-4 leading-7 text-[#536b65]">
                   {item.text}
                 </p>
 
                 <Link
                   href="/contact"
-                  className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-[#176454] transition-all duration-300 group-hover:gap-3"
+                  className="relative mt-7 inline-flex items-center gap-2 text-sm font-medium text-[#176454] transition-all duration-300 group-hover:gap-3"
                 >
                   Enquire now <span>→</span>
                 </Link>
+
+                <div className="relative mt-8 h-1 w-10 rounded-full bg-[#176454]/70 transition-all duration-300 group-hover:w-16 group-hover:bg-[#176454]" />
               </article>
             ))}
           </div>
