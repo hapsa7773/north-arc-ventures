@@ -116,6 +116,72 @@ export default function ColdChain() {
             </Link>
           </div>
         </div>
+        
+        {/* 3D Cold Chain Infrastructure */}
+        <section className="relative mt-24 overflow-hidden rounded-[2rem] border border-[#dce9e2] bg-white/80 shadow-[0_20px_60px_rgba(18,78,65,0.08)]">
+          <div className="grid items-center gap-8 p-6 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10 lg:p-12">
+            {/* Section content */}
+            <div className="relative z-10">
+              <p className="text-sm font-medium uppercase tracking-[0.24em] text-[#176454]">
+                Our Infrastructure
+              </p>
+
+              <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-[#123f36] sm:text-4xl lg:text-5xl">
+                Built for Temperature.
+                <span className="block">Designed for Trust.</span>
+              </h2>
+
+              <p className="mt-5 max-w-lg text-base leading-8 text-[#536b65]">
+                Explore a visual representation of cold-chain infrastructure,
+                including organized storage racks, insulated cold rooms,
+                refrigeration equipment and goods-handling areas.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <span className="rounded-full border border-[#dce9e2] bg-[#edf5f1] px-4 py-2 text-sm text-[#176454]">
+                  <Snowflake size={15} className="mr-2 inline" />
+                  Frozen Storage
+                </span>
+
+                <span className="rounded-full border border-[#dce9e2] bg-[#edf5f1] px-4 py-2 text-sm text-[#176454]">
+                  <Package size={15} className="mr-2 inline" />
+                  Goods Handling
+                </span>
+              </div>
+
+              <Link
+                href="/contact"
+                className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#12584b] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#0b4037]"
+              >
+                Discuss Your Requirements <span>→</span>
+              </Link>
+            </div>
+
+            {/* 3D warehouse visual */}
+            <div className="relative min-w-0">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-8 rounded-full bg-[#b9d8ca]/40 blur-3xl"
+              />
+
+              <div className="relative overflow-hidden rounded-[1.5rem] border border-[#dce9e2] bg-[#edf5f1] p-2 sm:p-3">
+                <Image
+                  src="/images/cold-chain-3d.png"
+                  alt="3D concept visualization of a cold storage warehouse, storage racks, cold rooms and refrigeration equipment"
+                  width={1200}
+                  height={900}
+                  sizes="(max-width: 1024px) 92vw, 55vw"
+                  className="relative h-auto w-full rounded-[1rem] object-contain"
+                />
+              </div>
+
+              <p className="mt-3 text-center text-xs leading-5 text-[#667b74]">
+                Illustrative infrastructure visualization
+              </p>
+            </div>
+          </div>
+        </section>
+
 
         {/* Service offerings */}
         <div className="mt-20">
